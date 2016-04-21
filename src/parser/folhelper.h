@@ -88,6 +88,7 @@
 #include "listobj.h"
 #include "timer.h"
 #include "internals.h"
+#include "fol.tab.h"
 
 //NOTE: When a variable is added, please init it in zzinit() and destroy it
 //      in zzcleanUp(). Add it in zzreset() if it has to be reinitialized before

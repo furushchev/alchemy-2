@@ -21,7 +21,7 @@ BASEDIR=..
 
 GPP=g++
 FLEX=flex
-BISON=bison
+BISON=bison -d
 
 BIN=$(BASEDIR)/bin
 OBJDIR=$(BASEDIR)/bin/obj
@@ -218,7 +218,8 @@ $(OBJDIR)/learnstruct.o:
 $(OBJDIR)/fol.o: $(PARSER)/fol.y $(PARSER)/follex.y
 	$(REPLACEFOLY) $(PARSER)/fol.y $(BISON)
 	$(FLEX) -o$(PARSER)/follex.cpp $(PARSER)/follex.y 
-	$(BISON) $(PARSER)/fol.y;
+	$(BISON) $(PARSER)/fol.y
+	mv -f fol.tab.h  $(PARSER)/fol.tab.h
 	mv -f fol.tab.c  $(PARSER)/fol.cpp
 	$(REPLACEFOLCPP) $(PARSER)/fol.cpp
 	$(GPP) $(CFLAGS) -o $(OBJDIR)/fol.o -c $(PARSER)/fol.cpp
