@@ -1,0 +1,10 @@
+language: cpp
+compiler:
+- gcc
+sudo: required
+dist: trusty
+cache: apt
+before_install:
+- export CI_SOURCE_PATH=$(pwd)
+script:
+- $CI_SOURCE_PATH/.travis.sh
