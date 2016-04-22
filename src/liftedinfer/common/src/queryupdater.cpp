@@ -460,7 +460,7 @@ void LvrQueryUpdater::updateQueryValuesLVGibbsRB(Atom* atom,vector<LogDouble> pr
 			return;
 		if(!value)
 		{
-			rbestimates->incrementValue(atom,&probs[1]);
+			rbestimates->incrementValue(atom,probs[1]);
 			//currentSampledValue->update(atom,sampledvalue);
 			lvrAtomHashUpdateFlags->update(atom,true);
 		}
@@ -492,7 +492,7 @@ void LvrQueryUpdater::updateQueryValuesLVGibbsRB(Atom* atom,vector<LogDouble> pr
 				continue;
 			if(!value)
 			{
-				rbestimates->incrementValue(intRep,&prob);
+				rbestimates->incrementValue(intRep,prob);
 				lvrAtomHashUpdateFlags->update(intRep,true);
 			}
 		}
@@ -508,7 +508,8 @@ void LvrQueryUpdater::updateGibbsDontCareRB()
 	{
 		if(!values[i])
 		{
-			rbestimates->incrementValue(keys[i],&(LogDouble(0.5,false)));
+      LogDouble ld = LogDouble(0.5,false);
+			rbestimates->incrementValue(keys[i],ld);
 		}
 		lvrAtomHashUpdateFlags->setValue(keys[i],false);
 	}
