@@ -47,4 +47,5 @@ export QUERY=Noun,Verb,Det,Prep,Adj
 learnwts -d -i $TEST_PATH/pos.mln -o mid-out.mln -t $TEST_PATH/pos-train1.db,$TEST_PATH/pos-train2.db,$TEST_PATH/pos-train3.db -ne $QUERY -multipleDatabases 1>/dev/null
 cat mid-out.mln
 infer -i mid-out.mln -r result -e $TEST_PATH/pos-test.db -q $QUERY
+cat result
 travis_time_end
