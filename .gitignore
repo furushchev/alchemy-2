@@ -133,3 +133,7 @@ tags
 *.tab.h
 *.tab.cpp
 *.tab.c
+
+bin
+!bin/obj/.gitkeep
+src/parser/fol.cpp
